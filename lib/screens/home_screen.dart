@@ -136,11 +136,26 @@ class HomeScreen extends StatelessWidget {
           child: child,
         );
       },
-      child: Image.asset(
-        'assets/images/rabbit.png',
-        width: 260,
-        height: 260,
-        fit: BoxFit.contain,
+      child: Container(
+        width: 224,
+        height: 224,
+        decoration: BoxDecoration(
+          shape: BoxShape.circle,
+          border: Border.all(color: Colors.white, width: 8),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withValues(alpha: 0.2),
+              blurRadius: 20,
+              offset: const Offset(0, 8),
+            ),
+          ],
+        ),
+        child: ClipOval(
+          child: Image.asset(
+            'assets/images/rabbit.png',
+            fit: BoxFit.cover,
+          ),
+        ),
       ),
     );
   }
