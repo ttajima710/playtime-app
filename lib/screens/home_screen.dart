@@ -136,25 +136,63 @@ class HomeScreen extends StatelessWidget {
           child: child,
         );
       },
-      child: Container(
-        width: 224,
-        height: 224,
-        decoration: BoxDecoration(
-          shape: BoxShape.circle,
-          border: Border.all(color: Colors.white, width: 8),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black.withValues(alpha: 0.2),
-              blurRadius: 20,
-              offset: const Offset(0, 8),
+      child: SizedBox(
+        width: 300,
+        height: 300,
+        child: Stack(
+          clipBehavior: Clip.none,
+          alignment: Alignment.center,
+          children: [
+            Container(
+              width: 224,
+              height: 224,
+              clipBehavior: Clip.antiAlias,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                color: const Color(0xFF42A5F5),
+                border: Border.all(color: Colors.white, width: 8),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black.withValues(alpha: 0.2),
+                    blurRadius: 20,
+                    offset: const Offset(0, 8),
+                  ),
+                ],
+              ),
+              child: Padding(
+                padding: const EdgeInsets.all(28),
+                child: Image.asset(
+                  'assets/images/rabbit.png',
+                  fit: BoxFit.contain,
+                ),
+              ),
+            ),
+            // 装飾アイテム
+            const Positioned(
+              top: 20, left: 15,
+              child: Text('\u{1F3B5}', style: TextStyle(fontSize: 40)),
+            ),
+            const Positioned(
+              top: 55, left: 0,
+              child: Text('\u{1F3B6}', style: TextStyle(fontSize: 32)),
+            ),
+            const Positioned(
+              top: 5, left: 85,
+              child: Text('\u{1F3AA}', style: TextStyle(fontSize: 32)),
+            ),
+            const Positioned(
+              top: 15, right: 10,
+              child: Text('\u{1F3A8}', style: TextStyle(fontSize: 40)),
+            ),
+            const Positioned(
+              bottom: 15, left: 20,
+              child: Text('\u{1F9F8}', style: TextStyle(fontSize: 40)),
+            ),
+            const Positioned(
+              bottom: 20, right: 25,
+              child: Text('\u{2B50}', style: TextStyle(fontSize: 40)),
             ),
           ],
-        ),
-        child: ClipOval(
-          child: Image.asset(
-            'assets/images/rabbit.png',
-            fit: BoxFit.cover,
-          ),
         ),
       ),
     );
