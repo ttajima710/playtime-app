@@ -149,7 +149,7 @@ class HomeScreen extends StatelessWidget {
               clipBehavior: Clip.antiAlias,
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
-                color: const Color(0xFF42A5F5),
+                color: const Color(0xFF3E8EFE),
                 border: Border.all(color: Colors.white, width: 8),
                 boxShadow: [
                   BoxShadow(
@@ -162,7 +162,7 @@ class HomeScreen extends StatelessWidget {
               child: Padding(
                 padding: const EdgeInsets.all(28),
                 child: Image.asset(
-                  'assets/images/rabbit.png',
+                  'docs/image.png',
                   fit: BoxFit.contain,
                 ),
               ),
