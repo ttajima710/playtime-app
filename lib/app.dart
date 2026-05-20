@@ -9,11 +9,11 @@ import 'screens/remote/remote_screen.dart';
 
 final _router = GoRouter(
   routes: [
-    GoRoute(path: '/', builder: (_, __) => const HomeScreen()),
-    GoRoute(path: '/select', builder: (_, __) => const GameSelectScreen()),
-    GoRoute(path: '/piano', builder: (_, __) => const PianoScreen()),
-    GoRoute(path: '/drawing', builder: (_, __) => const DrawingScreen()),
-    GoRoute(path: '/remote', builder: (_, __) => const RemoteScreen()),
+    GoRoute(path: '/', builder: (_, _) => const HomeScreen()),
+    GoRoute(path: '/select', builder: (_, _) => const GameSelectScreen()),
+    GoRoute(path: '/piano', builder: (_, _) => const PianoScreen()),
+    GoRoute(path: '/drawing', builder: (_, _) => const DrawingScreen()),
+    GoRoute(path: '/remote', builder: (_, _) => const RemoteScreen()),
   ],
 );
 
@@ -23,7 +23,8 @@ class PlaytimeApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
-      title: '\u{305F}\u{306E}\u{3057}\u{3044}\u{FF01}\u{30D7}\u{30EC}\u{30A4}\u{30BF}\u{30A4}\u{30E0}',
+      title:
+          '\u{305F}\u{306E}\u{3057}\u{3044}\u{FF01}\u{30D7}\u{30EC}\u{30A4}\u{30BF}\u{30A4}\u{30E0}',
       theme: AppTheme.theme,
       routerConfig: _router,
       debugShowCheckedModeBanner: false,

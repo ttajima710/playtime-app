@@ -1,4 +1,3 @@
-import 'dart:js_interop';
 import 'package:web/web.dart' as web;
 
 /// Web Audio API wrapper for low-latency sound generation.
@@ -51,7 +50,7 @@ class AudioService {
     oscillator.connect(gainNode);
     gainNode.connect(ctx.destination);
 
-    oscillator.type = waveType as web.OscillatorType;
+    oscillator.type = waveType;
     oscillator.frequency.value = frequency;
 
     final now = ctx.currentTime;
@@ -77,7 +76,7 @@ class AudioService {
     oscillator.connect(gainNode);
     gainNode.connect(ctx.destination);
 
-    oscillator.type = waveType as web.OscillatorType;
+    oscillator.type = waveType;
     final now = ctx.currentTime;
     oscillator.frequency.setValueAtTime(startFreq, now);
     oscillator.frequency.exponentialRampToValueAtTime(endFreq, now + duration);
@@ -99,15 +98,14 @@ class AudioService {
       oscillator.connect(gainNode);
       gainNode.connect(ctx.destination);
 
-      oscillator.type = note.waveType as web.OscillatorType;
+      oscillator.type = note.waveType;
       oscillator.frequency.value = note.frequency;
 
       final now = ctx.currentTime;
       final start = now + note.startTime;
       gainNode.gain.setValueAtTime(0.0, start);
       gainNode.gain.linearRampToValueAtTime(note.volume, start + 0.05);
-      gainNode.gain.exponentialRampToValueAtTime(
-          0.01, start + note.duration);
+      gainNode.gain.exponentialRampToValueAtTime(0.01, start + note.duration);
 
       oscillator.start(start);
       oscillator.stop(start + note.duration);
@@ -129,7 +127,7 @@ class AudioService {
     _continuousOscillator!.connect(_continuousGain!);
     _continuousGain!.connect(ctx.destination);
 
-    _continuousOscillator!.type = waveType as web.OscillatorType;
+    _continuousOscillator!.type = waveType;
     _continuousOscillator!.frequency.value = frequency;
     _continuousGain!.gain.value = volume;
 
